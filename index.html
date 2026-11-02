@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PaletteLens: colour accessibility checker</title>
+  <meta name="description" content="Check a colour palette for colour-blindness and text contrast. Runs in your browser.">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>PaletteLens</h1>
+    <p>Pick five colours, see how they look to people with colour-blindness, then check your text contrast against WCAG rules.</p>
+  </header>
+
+  <main>
+    <section aria-labelledby="h-palette">
+      <h2 id="h-palette">Your palette</h2>
+      <div id="palette" class="palette"></div>
+      <div class="actions">
+        <button id="copy" type="button">Copy as CSS variables</button>
+        <button id="random" type="button" class="ghost">Try random colours</button>
+      </div>
+    </section>
+
+    <section aria-labelledby="h-vision">
+      <h2 id="h-vision">How others see it</h2>
+      <div id="vision"></div>
+      <h3>Colours that may be confused</h3>
+      <ul id="warnings" aria-live="polite"></ul>
+    </section>
+
+    <section aria-labelledby="h-contrast">
+      <h2 id="h-contrast">Text contrast</h2>
+      <div class="pair">
+        <label>Text colour <select id="fg"></select></label>
+        <label>Background <select id="bg"></select></label>
+      </div>
+      <div id="preview" class="preview">The quick brown fox jumps over the lazy dog.</div>
+      <p id="ratio" aria-live="polite"></p>
+      <ul id="chips" class="chips"></ul>
+    </section>
+  </main>
+
+  <footer>Everything runs in your browser. Nothing is uploaded.</footer>
+</body>
+</html>
